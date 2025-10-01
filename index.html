@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chia sẻ tân sinh viên - Nguyễn Thị Nguyệt Quế</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #6ee7b7;
+      --muted: #94a3b8;
+      --text: #e6eef8;
+      --glass: rgba(255, 255, 255, 0.04);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #071029 0%, #081226 60%);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      padding: 40px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(2, 6, 23, 0.5);
+    }
+
+    .header-section {
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin: 12px 0 8px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 12px 0;
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    ul,
+    ol {
+      margin: 12px 0;
+      padding-left: 24px;
+      line-height: 1.7;
+    }
+
+    li {
+      margin: 10px 0;
+      font-size: 1.05rem;
+    }
+
+    .accent {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01));
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      margin: 16px 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 24px 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .timeline-item {
+      background: linear-gradient(90deg, rgba(110, 231, 183, 0.08), rgba(110, 231, 183, 0.02));
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+
+    .quote-box {
+      background: linear-gradient(135deg, rgba(110, 231, 183, 0.1), rgba(52, 211, 153, 0.05));
+      border-left: 4px solid var(--accent);
+      padding: 24px;
+      margin: 24px 0;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .chip {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 4px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .contact-info {
+      text-align: center;
+      padding: 40px;
+      background: var(--glass);
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-info li {
+      font-size: 16px;
+      margin: 12px 0;
+    }
+
+    @media (max-width: 900px) {
+
+      .two-col,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .section {
+        padding: 24px;
+      }
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(110, 231, 183, 0.1);
+      z-index: 1000;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #34d399);
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressBar"></div>
+  </div>
+
+  <div class="container">
+    <!-- Giới thiệu -->
+    <section class="section header-section">
+      <h3>Chia sẻ từ Cựu sinh viên Khoa CNTT</h3>
+      <h2>Nguyễn Thị Nguyệt Quế</h2>
+
+      <p class="subtitle"><strong>Back-End Team Leader</strong> tại <strong>Công ty TNHH
+          Phần mềm
+          VietProDev</strong>
+      </p>
+      <p class="subtitle">Cựu sinh viên K16 Khoa Công nghệ thông tin - Trường Đại học Công nghệ Đồng Nai<br>
+        Tốt nghiệp loại <strong>Xuất sắc</strong> (GPA 3.83/4.0)</p>
+      <div style="margin-top: 24px;">
+        <span class="chip">Full-Stack Developer</span>
+        <span class="chip">Back-End Team Leader</span>
+        <span class="chip">Back-End Mentor</span>
+        <br>
+        <span class="chip">Olympic Tin học Quốc gia</span>
+        <span class="chip">Nghiên cứu Euréka</span>
+        <span class="chip">Sinh viên 5 tốt cấp Tỉnh</span>
+      </div>
+    </section>
+
+    <!-- Hành trình -->
+    <section class="section">
+      <h2>🎓 Lộ trình 4 năm học đại học</h2>
+      <p class="subtitle">Từ tân sinh viên đến Developer <br /> Rèn luyện Kiến thức - Kỹ năng - Thái độ</p>
+
+      <div class="timeline-item">
+        <strong>Năm 1: Xây dựng nền tảng</strong>
+        <ul style="list-style: disc; padding-left: 20px;">
+          <li>Làm quen với môi trường đại học</li>
+          <li>Tham gia các hoạt động ngoại khóa để rèn luyện kỹ năng mềm và tích lũy ngày CTXH</li>
+          <li>Học ngoại ngữ, đặc biệt là tiếng Anh</li>
+          <li>Học cách tự học, quản lý thời gian hiệu quả</li>
+          <li>Xây dựng nền tảng lập trình (C/C++, cấu trúc dữ liệu và giải thuật, OOP, SQL)</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <strong>Năm 2-3: Định hướng nghề nghiệp và học chuyên sâu</strong>
+        <ul>
+          <li>Tìm hiểu thị trường và định hướng nghề nghiệp</li>
+          <li>Học chuyên sâu về 1 lĩnh vực</li>
+          <li>Bắt đầu làm dự án cá nhân và dự án nhóm</li>
+          <li>Tham gia các cuộc thi lập trình, nghiên cứu khoa học</li>
+          <li>Tham gia các hoạt động ngoại khóa, câu lạc bộ để mở rộng mối quan hệ</li>
+          <li>Bắt đầu viết CV, xây dựng portfolio cá nhân</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <strong>Năm 3-4: Thực tập và hoàn thành đồ án tốt nghiệp</strong>
+        <ul>
+          <li>Hoàn thiện CV, kỹ năng phỏng vấn</li>
+          <li>Thực tập tại công ty để tích lũy kinh nghiệm thực tế</li>
+          <li>Hoàn thành đồ án tốt nghiệp</li>
+        </ul>
+      </div>
+
+      <div class="quote-box">
+        <p><strong>📌 Kinh nghiệm:</strong> Bắt đầu sớm, đừng chờ đến năm cuối mới lo nghề nghiệp.</p>
+      </div>
+    </section>
+
+    <!-- Thành tích -->
+    <section class="section">
+      <h2>🏆 Những cột mốc nổi bật</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="color: var(--accent);">🏆 Giải thưởng</h3>
+          <ul>
+            <li>Giải Nhất Olympic Tin học Sinh viên - Nguồn mở (2022)</li>
+            <li>Sinh viên 5 tốt cấp tỉnh Đồng Nai</li>
+            <li>TOEIC 715</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent);">🔬 Nghiên cứu</h3>
+          <ul>
+            <li>Nghiên cứu khoa học Eureka (2023)</li>
+            <li>Đề tài: Phân tích ChatGPT trong học tập</li>
+            <li>Sử dụng Python, Pandas, Matplotlib</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent);">💼 Nghề nghiệp</h3>
+          <ul>
+            <li>Fullstack Developer tại Meu-Solutions & VietProDev</li>
+            <li>Mentor & Team Leader</li>
+            <li>Hướng dẫn >10 thực tập sinh</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        <p><strong>💡 Key Insight:</strong> Bắt đầu tham gia dự án thực tế ngay khi còn ngồi trên ghế nhà trường. Đừng
+          chờ đến khi tốt nghiệp mới tích lũy kinh nghiệm!</p>
+      </div>
+    </section>
+
+    <!-- Tư duy học tập -->
+    <section class="section">
+      <h2>💡 Tư duy học tập</h2>
+      <p class="subtitle">4 Nguyên tắc học tập hiệu quả</p>
+
+      <div class="timeline-item">
+        <strong>1. Học có mục tiêu & kế hoạch</strong>
+        <p>Xác định rõ mục tiêu ngắn hạn (3-6 tháng) và dài hạn (1-4 năm). Lập kế hoạch chi tiết cho từng giai đoạn.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>2. Vững nền tảng → Nâng cao → Ứng dụng</strong>
+        <p>Đầu tư thời gian vào nền tảng (CTDL, OOP, DB) trước khi học framework. Nền tảng vững sẽ giúp học mọi thứ
+          nhanh hơn.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>3. Học = 20% Lý thuyết + 80% Thực hành</strong>
+        <p>Đọc docs và xem tutorial chỉ chiếm 20%. Phần còn lại là code, làm project, debug, và học từ sai lầm.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>4. "Đọc docs chính thống trước, tutorial sau"</strong>
+        <p>Official documentation là nguồn tin chuẩn nhất. Tutorial có thể lỗi thời hoặc sai. Học cách đọc docs từ sớm.
+        </p>
+      </div>
+    </section>
+
+    <!-- Phương pháp học -->
+    <section class="section">
+      <h2>⚙️ Kỹ thuật học hiệu quả</h2>
+
+      <div class="two-col">
+        <div>
+          <h3>Phương pháp & Công cụ</h3>
+          <ul>
+            <li><strong>Notion:</strong> Ghi chú có hệ thống, tạo knowledge base cá nhân</li>
+            <li><strong>Flashcard (Anki):</strong> Học thuộc với spaced repetition</li>
+            <li><strong>Pomodoro:</strong> 25 phút tập trung + 5 phút nghỉ</li>
+            <li><strong>Code Review:</strong> Review code của bạn bè hoặc tự review code cũ</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Thói quen hàng ngày</h3>
+            <p>20-30 phút đọc docs/blogs mỗi sáng. 1-2 giờ coding mỗi tối. Cuối tuần làm project nhỏ hoặc refactor code
+              cũ.</p>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Mẹo:</strong> Consistency quan trọng hơn intensity. Học 1 giờ mỗi ngày tốt hơn học 10 giờ vào cuối
+        tuần.</p>
+    </section>
+
+    <!-- Nền tảng -->
+    <section class="section">
+      <h2>🔧 Xây nền tảng CNTT vững chắc</h2>
+      <p class="subtitle">4 trụ cột cần nắm vững</p>
+
+      <div class="two-col">
+        <div class="card">
+          <h3 style="color: var(--accent);">1. Cấu trúc dữ liệu & Giải thuật</h3>
+          <ul>
+            <li>Array, LinkedList, Stack, Queue</li>
+            <li>Tree, Graph, Hash Table</li>
+            <li>Sorting, Searching algorithms</li>
+            <li>Time & Space complexity (Big O)</li>
+          </ul>
+          <p style="color: var(--muted);"><strong>Tại sao:</strong> Tư duy giải quyết vấn đề, tối ưu code, pass
+            interview</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">2. OOP & Design Patterns</h3>
+          <ul>
+            <li>4 tính chất: Encapsulation, Inheritance, Polymorphism, Abstraction</li>
+            <li>SOLID principles</li>
+            <li>Design patterns: Singleton, Factory, Observer...</li>
+          </ul>
+          <p style="color: var(--muted);"><strong>Tại sao:</strong> Code maintainable, scalable, dễ teamwork</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">3. Database & SQL</h3>
+          <ul>
+            <li>SQL cơ bản: SELECT, JOIN, GROUP BY</li>
+            <li>Database design: normalization, indexes</li>
+            <li>Transactions, ACID properties</li>
+            <li>NoSQL basics (MongoDB)</li>
+          </ul>
+          <p style="color: var(--muted);"><strong>Tại sao:</strong> Mọi ứng dụng đều cần lưu trữ dữ liệu</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">4. Network & Web Basics</h3>
+          <ul>
+            <li>HTTP/HTTPS, Request/Response</li>
+            <li>REST API, JSON</li>
+            <li>TCP/IP, DNS</li>
+            <li>Authentication: JWT, OAuth</li>
+          </ul>
+          <p style="color: var(--muted);"><strong>Tại sao:</strong> Nền tảng của web development</p>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        <p><strong>💪 Lời khuyên:</strong> Dành 6 tháng đầu năm 1 để vững nền tảng. Đừng vội học framework. Một khi nền
+          tảng vững, học bất kỳ công nghệ nào cũng nhanh!</p>
+      </div>
+    </section>
+
+    <!-- Hoạt động ngoại khóa -->
+    <section class="section">
+      <h2>🌟 Hoạt động ngoại khóa</h2>
+      <p class="subtitle">Rèn kỹ năng mềm & networking</p>
+
+      <h3>Nên tham gia</h3>
+      <ul>
+        <li><strong>CLB CNTT:</strong> Học teamwork, code review, làm project nhóm. Networking với anh chị khóa trên.
+        </li>
+        <li><strong>Hackathon:</strong> Rèn tốc độ tư duy, học cách làm việc dưới áp lực, pitching idea.</li>
+        <li><strong>Olympic Tin học:</strong> Nâng cao khả năng giải thuật, tư duy logic.</li>
+        <li><strong>Nghiên cứu khoa học:</strong> Học cách research, viết báo cáo, present ý tưởng.</li>
+      </ul>
+
+      <div class="quote-box">
+        <p><strong>💡 Key Insight:</strong> Hoạt động ngoại khóa không chỉ là điểm cộng trong CV. Đó là nơi bạn rèn
+          luyện cả <span class="accent">kiến thức - kỹ năng - thái độ</span> từ khi ngồi trên ghế nhà trường. Học
+          teamwork, leadership, public speaking - những kỹ năng không thể học từ sách vở!</p>
+      </div>
+    </section>
+
+    <!-- Thực tập -->
+    <section class="section">
+      <h2>💼 Kinh nghiệm thực tập</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h3 style="color: var(--accent);">📄 CV & Portfolio</h3>
+          <ul>
+            <li>CV 1 trang, rõ ràng</li>
+            <li>GitHub có 3-5 projects thực tế</li>
+            <li>LinkedIn profile chuyên nghiệp</li>
+            <li>Portfolio website (bonus)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent);">🔧 Technical Skills</h3>
+          <ul>
+            <li>Git workflow: branch, commit, PR</li>
+            <li>Agile basics: Sprint, User Story</li>
+            <li>Testing: unit test cơ bản</li>
+            <li>Debug skills & Google-fu</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Thái độ khi thực tập</h3>
+      <ul>
+        <li><strong>Chủ động giao tiếp:</strong> Update progress hàng ngày, báo cáo khó khăn sớm, đừng ngại hỏi</li>
+        <li><strong>Học hỏi từ code review:</strong> Mọi comment đều là cơ hội học. Đừng defensive, hãy grateful</li>
+        <li><strong>Tránh "copy code không hiểu":</strong> Hiểu từng dòng code bạn viết</li>
+        <li><strong>Document & Comment:</strong> Viết README, comment code phức tạp</li>
+      </ul>
+    </section>
+
+    <!-- Tips -->
+    <section class="section">
+      <h2>💎 10 Tips cho tân sinh viên</h2>
+
+      <div class="two-col">
+        <div>
+          <ol>
+            <li><strong>Vững nền tảng trước khi chạy theo trend.</strong> React hot nhưng nếu JS yếu thì vẫn fail.</li>
+            <li><strong>Học tiếng Anh song song.</strong> Đọc docs, xem video, viết comment bằng English.</li>
+            <li><strong>Dám hỏi, tìm mentor sớm.</strong> Senior devs thích giúp juniors chủ động học hỏi.</li>
+            <li><strong>Quản lý thời gian.</strong> Tránh "deadline dí mới làm". Plan ahead, chia nhỏ task.</li>
+            <li><strong>Git & GitHub từ năm 1.</strong> Commit code mỗi ngày, build green streak.</li>
+          </ol>
+        </div>
+        <div>
+          <ol start="6">
+            <li><strong>Làm project > Học lý thuyết.</strong> 1 project CRUD học được nhiều hơn 10 bài giảng.</li>
+            <li><strong>Đọc code người khác.</strong> GitHub là kho báu. Clone projects và đọc source code.</li>
+            <li><strong>Viết blog/document.</strong> Giảng dạy là cách học tốt nhất. Write to learn.</li>
+            <li><strong>Networking từ sớm.</strong> Bạn cùng lớp = đồng nghiệp tương lai.</li>
+            <li><strong>Sức khỏe là vốn.</strong> Ngồi code nhiều nhưng phải tập gym, chạy bộ.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        <p><strong>⚠️ Sai lầm phổ biến:</strong> Chạy theo trend khi chưa vững nền tảng. Học nhiều framework nhưng không
+          hiểu sâu. Ngại hỏi vì sợ người khác nghĩ mình ngu.</p>
+      </div>
+    </section>
+
+    <!-- Định hướng -->
+    <section class="section">
+      <h2>🎯 Định hướng nghề nghiệp CNTT</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="color: var(--accent);">🌐 Fullstack Developer</h3>
+          <p>Làm cả Frontend & Backend. Phù hợp nếu thích đa năng, hiểu toàn bộ flow.</p>
+          <p style="color: var(--muted); font-size: 14px;"><strong>Skills:</strong> React/Vue, Node.js/Django, SQL, Git
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">⚙️ Backend Developer</h3>
+          <p>Focus logic, database, API, performance. Thích hệ thống phức tạp.</p>
+          <p style="color: var(--muted); font-size: 14px;"><strong>Skills:</strong> Java/Python, SQL, Redis, System
+            Design</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">🎨 Frontend Developer</h3>
+          <p>UI/UX, animations, responsive. Phù hợp nếu thích visual & user experience.</p>
+          <p style="color: var(--muted); font-size: 14px;"><strong>Skills:</strong> React, CSS, TypeScript, Design</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">📱 Mobile Developer</h3>
+          <p>iOS/Android apps. Lương cao, nhu cầu lớn.</p>
+          <p style="color: var(--muted); font-size: 14px;"><strong>Skills:</strong> React Native, Swift/Kotlin, Mobile
+            UX</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">📊 Data Engineer</h3>
+          <p>ETL pipelines, analytics. Thích toán, thống kê.</p>
+          <p style="color: var(--muted); font-size: 14px;"><strong>Skills:</strong> Python, SQL, Spark, Visualization
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent);">🤖 AI/ML Engineer</h3>
+          <p>Machine learning models, NLP. Cần nền toán vững.</p>
+          <p style="color: var(--muted); font-size: 14px;"><strong>Skills:</strong> Python, TensorFlow, Math, Statistics
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thông điệp cuối -->
+    <section class="section">
+      <h2 style="text-align: center; font-size: 36px; color: var(--accent); margin-bottom: 32px;">
+        "Sinh viên CNTT không chỉ học code,<br>mà học cách TỰ HỌC SUỐT ĐỜI"
+      </h2>
+
+      <div class="quote-box">
+        <p style="font-size: 20px; text-align: center;">
+          <strong>Kiên trì</strong> + <strong>Chủ động</strong> + <strong>Tư duy đúng</strong> = <span
+            class="accent">THÀNH CÔNG</span>
+        </p>
+      </div>
+
+      <h3 style="margin-top: 32px;">3 điều cuối cùng</h3>
+      <ul style="font-size: 18px;">
+        <li><strong>Start now, not tomorrow.</strong> Bắt đầu 1 project nhỏ tuần này. Action > Perfection.</li>
+        <li><strong>Embrace the struggle.</strong> Coding khó. Debugging frustrating. Nhưng đó là dấu hiệu bạn đang
+          grow!</li>
+        <li><strong>You're not alone.</strong> Cộng đồng dev rất supportive. Hỏi, chia sẻ, kết nối!</li>
+      </ul>
+
+      <div class="quote-box" style="margin-top: 32px; text-align: center;">
+        <p style="font-size: 18px;"><strong>🌟 Remember:</strong> Mọi senior dev hôm nay đều từng là junior dev ngày hôm
+          qua. Nếu họ làm được, <span class="accent">BẠN CŨNG LÀM ĐƯỢC!</span></p>
+      </div>
+    </section>
+
+    <!-- Liên hệ -->
+    <section class="section contact-info">
+      <h2>📞 Liên hệ với mình</h2>
+      <ul>
+        <li>📧 Email: quentn0620@gmail.com</li>
+        <li>💼 LinkedIn: linkedin.com/in/nguyetque01</li>
+        <li>💻 GitHub: github.com/nguyetque01</li>
+        <li>📱 Phone: (+84) 939 469 412</li>
+      </ul>
+
+      <div class="card" style="margin-top: 40px; text-align: left;">
+        <h3 style="color: var(--accent); text-align: center; margin-bottom: 20px;">🎓 Khóa học lập trình - Tham gia dự
+          án thực tế</h3>
+        <p style="text-align: center; margin-bottom: 24px;"><strong>Công ty TNHH Phần mềm VietProDev</strong></p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin: 12px 0;">📧 Email: contact@vietprodev.vn</li>
+          <li style="margin: 12px 0;">🌐 Website: www.vietprodev.vn</li>
+          <li style="margin: 12px 0;">📱 Phone: (+84) 354 285 685</li>
+          <li style="margin: 12px 0;">📍 Địa chỉ: L5-22, KDC Phú Gia, tổ 13, KP 5, Phường Trảng Dài, TP Biên Hoà, Tỉnh
+            Đồng Nai, Việt Nam</li>
+        </ul>
+      </div>
+
+      <div class="quote-box" style="margin-top: 32px;">
+        <p>Cảm ơn thầy cô và các bạn sinh viên đã theo dõi.</p>
+        <p style="margin-top: 12px;">Chúc các bạn thành công rực rỡ trên con đường mình đã chọn!</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Progress bar on scroll
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+  </script>
+</body>
+
+</html>
